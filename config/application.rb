@@ -11,7 +11,6 @@ module TestGuru
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     
-    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*{rb,yml}')]
     I18n.available_locales = [:en, :ru]
     I18n.default_locale = :ru
     # Configuration for the application, engines, and railties goes here.
