@@ -1,4 +1,7 @@
 class Test < ApplicationRecord
+  has_many :questions
+  
+
   def self.sort_test_by_category(category_title)
     joins('JOIN categories ON tests.category_id = categories.id')
     .where(categories: {title: category_title})
