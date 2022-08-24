@@ -1,7 +1,6 @@
 class User < ApplicationRecord
-  has_many :tests
-  has_many :results
-  has_and_belongs_to_many :tests
+  has_many :tests, through: :results
+  has_many :my_tests, class_name: 'Test', foreign_key: :author_id
 
   def test_history(level)
     Test.joins('JOIN results ON results.test_id = tests.id')
