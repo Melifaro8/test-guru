@@ -4,7 +4,7 @@ class Test < ApplicationRecord
 
   has_many :questions, dependent: :destroy
   has_many :results
-  has_many :users
+  has_many :users, through: :results
 
   scope :by_category, -> (name) { joins(:category).where(categories: { title: name }) }
   

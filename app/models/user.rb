@@ -4,8 +4,6 @@ class User < ApplicationRecord
   has_many :results, dependent: :destroy
 
   def test_history(level)
-    Test.joins('JOIN results ON results.test_id = tests.id')
-    .where(level: level)
-    .where(results: {user_id: id})
+    tests.level(level)
   end
 end
