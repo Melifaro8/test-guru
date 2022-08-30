@@ -11,9 +11,9 @@ users = User.create!([{login: 'Иван', password: '123'}, {login: 'John', pass
 tests = Test.create!([
    {title: 'Египет', level: 1, author: users[0], category: categories[0]},
    {title: 'Рим', level: 2, author: users[0], category: categories[0]},
-   {title: 'Русь', level: 3, author: users[0], category: categories[0]},
+   {title: 'Русь', level: 3, author: users[1], category: categories[0]},
    {title: 'Творчество русских композиторов', level: 3, author: users[0], category: categories[1]},
-   {title: 'Тест по музыке', level: 3, author: users[0], category: categories[1]}])
+   {title: 'Тест по музыке', level: 3, author: users[1], category: categories[1]}])
 
 questions = Question.create!([
    {body: 'Первая столица Египта', test: tests[0]}, #0
@@ -46,7 +46,7 @@ questions = Question.create!([
    {body: 'Кто автор балета "Золушка"?', test: tests[4]}, #23
    {body: 'Кто автор балета "Лебединое озеро"?', test: tests[4]}]) #24
 
-answers = Answer.create!([
+Answer.create!([
    {body: 'Мемфис', question: questions[0], correct: true},
    {body: 'Фивы', question: questions[0]},
    {body: 'Афины', question: questions[0]},
