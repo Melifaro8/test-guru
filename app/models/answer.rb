@@ -6,7 +6,9 @@ class Answer < ApplicationRecord
 
   scope :correct, -> { where(correct: true) }
 
+  private
+
   def answers_validation
-    errors.add(:question, 'слишком много вариантов ответа') unless question.answers.count < 4
+    errors.add(:question, 'слишком много вариантов ответа') if question.answers.count > 4
   end
 end

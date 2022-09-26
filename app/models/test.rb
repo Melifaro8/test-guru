@@ -1,4 +1,7 @@
 class Test < ApplicationRecord
+
+  default_scope { order(title: :asc) }
+
   belongs_to :category
   belongs_to :author, class_name: 'User'
 
@@ -8,9 +11,6 @@ class Test < ApplicationRecord
 
   validates :level, numericality: { greater_than: 0, only_integer: true }
   validates :title, uniqueness: { scope: :level }
-
-
-  default_scope { order(title: :asc) }
 
   scope :by_category, -> (name) { joins(:category).where(categories: { title: name }) }
   scope :easy, -> { where(level: 0..1) }
